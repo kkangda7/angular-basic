@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  serverElements = [];
+  serverElements = [
+    { type: 'server', name: 'severName', content: 'severContent' },
+  ];
 
   onAddServer(event: { serverName: string; serverContent: string }) {
     this.serverElements.push({
@@ -22,5 +24,13 @@ export class AppComponent {
       name: event.printName,
       content: event.printContent,
     });
+  }
+
+  onChangeFirst() {
+    this.serverElements[0].name = 'changed !!';
+  }
+
+  onDeleteElement() {
+    this.serverElements.splice(0, 1);
   }
 }
